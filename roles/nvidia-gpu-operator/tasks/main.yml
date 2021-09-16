@@ -1,0 +1,24 @@
+---
+- name: Download helm installation script
+  get_url:
+    url: https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+    dest: ./get_helm.sh
+    mode: '700'
+
+- name: Install helm
+  shell: ./get_helm.sh
+
+# While we would prefer to use the Ansible helm module, it's broken! :-(
+# See https://github.com/ansible/ansible/pull/57897
+# Unfortunately this will not be fixed until Ansible 2.10 which is not yet released.
+# So for now we will run /usr/local/bin/helm commands directly...
+- name: Install nvidia gpu operator helm repo
+  command: /usr/local/bin/helm repo add nvidia "{{ gpu_operator_helm_repo }}"
+
+- name: Update helm repos
+  command: /usr/local/bin/helm repo update
+
+# XXX: This currently installs into the default namespace, as per the GPU Operator docs
+# https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/getting-started.html
+- name: Install nvidia gpu operator
+  command: /usr/local/bin/helm upgrade --install "{{ gpu_operator_release_name }}" "{{ gpu_operator_chart_name }}" --version "{{ gpu_operator_chart_version }}" --set migStrategy="{{ k8s_gpu_mig_strategy }}" --set operator.defaultRuntime="{{ gpu_operator_default_runtime }}" --set driver.repository="{{ gpu_operator_driver_registry }}" --set driver.version="{{ gpu_operator_driver_version }}" {{ gpu_operator_registry_secret | default("") }} --set gfd.migStrateg="{{ k8s_gpu_mig_strategy }}" --set devicePlugin.args={"{{ gpu_operator_plugin_args }}"} --wait

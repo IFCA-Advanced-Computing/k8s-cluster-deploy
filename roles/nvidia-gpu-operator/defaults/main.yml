@@ -1,0 +1,20 @@
+---
+# See GitHub for more information https://github.com/NVIDIA/gpu-operator
+
+# Vars needed to install operator
+gpu_operator_helm_repo: "https://nvidia.github.io/gpu-operator"
+gpu_operator_chart_name: "nvidia/gpu-operator"
+gpu_operator_release_name: "nvidia-gpu-operator"
+gpu_operator_chart_version: "1.6.2"
+k8s_gpu_mig_strategy: "single"
+
+# Configuration customization
+# XXX: This currently appears to be hardcoded in the operator
+gpu_operator_namespace: "gpu-operator-resources"
+gpu_operator_grid_config_dir: "{{ deepops_dir }}/gpu_operator"
+
+# Defaults from https://github.com/NVIDIA/gpu-operator/blob/master/deployments/gpu-operator/values.yaml
+gpu_operator_default_runtime: "docker"
+gpu_operator_driver_registry: "nvcr.io/nvidia"
+gpu_operator_driver_version: "470.57.02"
+gpu_operator_plugin_args: "--mig-strategy={{ k8s_gpu_mig_strategy }},--pass-device-specs=true,--fail-on-init-error=true,--device-list-strategy=envvar,--nvidia-driver-root=/run/nvidia/driver"
