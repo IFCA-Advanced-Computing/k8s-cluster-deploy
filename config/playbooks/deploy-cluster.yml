@@ -1,0 +1,17 @@
+---
+- name: Deploy cluster with Kubespray
+  include: submodules/kubespray/cluster.yml
+
+- name: Kubernetes config file
+  hosts: kube_control_plane
+
+  tasks:
+  - name: Copy admin.conf to .kube
+    become: yes
+    become_method: sudo
+    copy:
+      src: /etc/kubernetes/admin.conf
+      dest: .kube/config
+      remote_src: yes
+      owner: "{{ ansible_effective_user_id | string }}"
+      group: "{{ ansible_effective_group_id | string }}"
