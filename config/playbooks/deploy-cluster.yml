@@ -3,7 +3,7 @@
   include: submodules/kubespray/cluster.yml
 
 - name: Kubernetes config file
-  hosts: kube_control_plane
+  hosts: kube_control_plane[0]
 
   tasks:
   - name: Copy admin.conf to .kube
@@ -15,3 +15,9 @@
       remote_src: yes
       owner: "{{ ansible_effective_user_id | string }}"
       group: "{{ ansible_effective_group_id | string }}"
+
+- name: Install Nvidia GPU Operator
+  hosts: kube_control_plane[0]
+  roles:
+    - nvidia-gpu-operator
+  when: nvidia_gpu_operator_enabled | default('false') | bool == true
