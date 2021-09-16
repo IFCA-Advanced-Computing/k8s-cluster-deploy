@@ -1,6 +1,6 @@
 ---
 - name: Deploy cluster with Kubespray
-  include: submodules/kubespray/cluster.yml
+  include_playbook: submodules/kubespray/cluster.yml
 
 - name: Kubernetes config file
   hosts: kube_control_plane[0]
