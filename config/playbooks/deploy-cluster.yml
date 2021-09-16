@@ -6,7 +6,7 @@
   hosts: kube_control_plane[0]
 
   tasks:
-  - name: Copy admin.conf to .kube
+  - name: Copy admin.conf to .kube/config
     become: yes
     become_method: sudo
     copy:
