@@ -1,4 +1,6 @@
 ---
-- name: Remove nvidia gpu operator
-  hosts: kube_control_plane[0]
-  command: /usr/local/bin/helm delete nvidia-gpu-operator
+- hosts: kube_control_plane[0]
+
+  tasks:
+  - name: Remove nvidia gpu operator
+    command: /usr/local/bin/helm delete nvidia-gpu-operator
