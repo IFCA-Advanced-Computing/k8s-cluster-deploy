@@ -116,3 +116,6 @@ no_proxy_exclude_workers: false
 
 ## Check if access_ip responds to ping. Set false if your firewall blocks ICMP.
 # ping_access_ip: true
+
+# Docker version
+docker_version: '20.10'
