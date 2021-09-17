@@ -310,4 +310,4 @@ auto_renew_certificates: false
 # auto_renew_certificates_systemd_calendar: "Mon *-*-1,2,3,4,5,6,7 03:{{ groups['kube_control_plane'].index(inventory_hostname) }}0:00"
 
 # Nvidia GPU operator
-nvidia_gpu_operator_enabled: false
+nvidia_gpu_operator: false
