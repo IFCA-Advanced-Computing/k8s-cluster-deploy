@@ -21,7 +21,5 @@
       owner: "{{ ansible_effective_user_id | string }}"
       group: "{{ ansible_effective_group_id | string }}"
 
-- name: Install Nvidia GPU Operator
-  hosts: kube_control_plane[0]
-  roles:
-    - nvidia-gpu-operator
+- import_playbook: add-nvidia-gpu-operator.yml
+  when: nvidia_gpu_operator_enabled | bool == true
