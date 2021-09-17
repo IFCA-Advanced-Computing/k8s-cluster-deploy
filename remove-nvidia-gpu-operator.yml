@@ -1,0 +1,4 @@
+---
+- name: Remove nvidia gpu operator
+  hosts: kube_control_plane[0]
+  command: /usr/local/bin/helm delete --purge "{{ gpu_operator_chart_name }}"

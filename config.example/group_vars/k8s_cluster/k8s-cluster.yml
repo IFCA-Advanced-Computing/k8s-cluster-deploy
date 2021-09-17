@@ -311,3 +311,4 @@ auto_renew_certificates: false
 
 # Nvidia GPU operator
 nvidia_gpu_operator: false
+gpu_operator_chart_name: "nvidia/gpu-operator"
