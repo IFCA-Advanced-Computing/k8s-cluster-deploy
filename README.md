@@ -4,6 +4,10 @@ This repository aims to deploy a Kubernetes cluster using [Kubespray](https://gi
 
 In addition, it provides access to GPU nodes by using [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator). In this way, there is no need to worry about installing the required NVIDIA drivers beforehand.
 
+## Requirements
+
+The following instructions has been tested using [Kubespray v2.16.0](https://github.com/kubernetes-sigs/kubespray/releases/tag/v2.16.0), [Ansible 2.9](https://docs.ansible.com/ansible/latest/roadmap/ROADMAP_2_9.html) and Ubuntu LTS - 20.4.
+
 ## Set Up
 
 In order to use a custom configuration the `config.example` folder has to be copied to a new one.
@@ -26,7 +30,7 @@ A playbook called `deploy-cluster.yml` that is responsible for deploying a Kuber
 ansible-playbook --user <user> --become --become-user=root deploy-cluster.yml
 ```
 
-The rest of the cluster management in terms of adding and deleting nodes or resetting the cluster can be done directly using the playbooks provided by Kubespray in `submodules/kubespray`.
+The rest of the cluster management in terms of adding and deleting nodes or resetting the cluster can be done directly using the playbooks provided by Kubespray in `submodules/kubespray`. More information can be found in [Adding/replacing a node](https://github.com/kubernetes-sigs/kubespray/blob/v2.16.0/docs/nodes.md#addingreplacing-a-node). 
 
 ### Add node
 
