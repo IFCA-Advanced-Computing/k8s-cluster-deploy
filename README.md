@@ -2,6 +2,8 @@
 
 This repository aims to deploy a Kubernetes cluster using [Kubespray](https://github.com/kubernetes-sigs/kubespray) in the most straightforward manner.
 
+In addition, it provides access to GPU nodes by using [NVIDIA GPU Operator](https://github.com/NVIDIA/gpu-operator). In this way, there is no need to worry about installing the required NVIDIA drivers beforehand.
+
 ## Set Up
 
 In order to use a custom configuration the `config.example` folder has to be copied to a new one.
