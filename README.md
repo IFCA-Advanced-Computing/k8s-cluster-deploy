@@ -44,7 +44,7 @@ ansible-playbook --user <user> --become --become-user=root submodules/kubespray/
 ansible-playbook --user <user> --become --become-user=root submodules/kubespray/remove-node.yml --extra-vars "node=nodename1,nodename2"
 ```
 
-Remove node configuration from `inventory/<cluster-name>/hosts.yaml`.
+Remove node configuration from `inventory.ini` file.
 
 ### Reset cluster
 
