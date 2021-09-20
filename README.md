@@ -10,7 +10,7 @@ The following instructions have been tested using [Kubespray v2.16.0](https://gi
 
 ## Set Up
 
-In order to use a custom configuration the `config.example` folder has to be copied to a new one.
+In order to use a custom configuration the `config.example` folder has to be copied to a new one. From now on, this new folder should be the only one in which files are modified.
 
 ```bash
 cp -rfp config.example config
