@@ -5,7 +5,7 @@
 gpu_operator_helm_repo: "https://nvidia.github.io/gpu-operator"
 gpu_operator_chart_name: "nvidia/gpu-operator"
 gpu_operator_release_name: "nvidia-gpu-operator"
-gpu_operator_chart_version: "1.6.2"
+gpu_operator_chart_version: "1.8.1"
 k8s_gpu_mig_strategy: "single"
 
 # Configuration customization
