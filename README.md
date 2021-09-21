@@ -6,7 +6,11 @@ In addition, it provides access to GPU nodes using [NVIDIA GPU Operator](https:/
 
 ## Requirements
 
-The following instructions have been tested using [Kubespray v2.16.0](https://github.com/kubernetes-sigs/kubespray/releases/tag/v2.16.0) (which installs [Kubernetes 1.20.7](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.20.md#v1207)), [Ansible 2.9](https://docs.ansible.com/ansible/latest/roadmap/ROADMAP_2_9.html) and Ubuntu LTS - 20.4.
+The following cluster deployment has been tested using:
+* [Kubespray v2.16.0](https://github.com/kubernetes-sigs/kubespray/releases/tag/v2.16.0) (which installs [Kubernetes 1.20.7](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.20.md#v1207))
+* [Ansible 2.9](https://docs.ansible.com/ansible/latest/roadmap/ROADMAP_2_9.html)
+* [NVIDIA GPU Operator 1.8.1](https://github.com/NVIDIA/gpu-operator/releases/tag/v1.8.1)
+* Ubuntu LTS - 20.4.
 
 ## Set Up
 
